@@ -2,7 +2,7 @@
 #ifndef CSV_READER_H
 # define CSV_READER_H
 
-# include "libft/include/libft.h"
+# include "libft.h"
 # include <fcntl.h>
 typedef struct	s_csv_table
 {
