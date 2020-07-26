@@ -1,5 +1,8 @@
 
 #include "csv_reader.h"
+#include "libft.h"
+#include "ft_printf.h"
+#include "get_next_line.h"
 
 void		error_manager(char *str)
 {
@@ -11,15 +14,15 @@ static int	check_filetype(char *name)
 {
 	int i;
 
-	i = 0;
-	while (name[i])
+	i = ft_strlen(name) - 1;
+	while (i >= 0)
 	{
 		if (name[i] == '.')
 		{
 			if (ft_strcmp(name + i, ".csv" ) == 0)
 				return (1);
 		}
-		i++;
+		i--;
 	}
 	return (0);
 }
@@ -98,15 +101,3 @@ t_csv_table csv_read_file(char *filename)
 	csv_read_cells(&csv, filename, delim);
 	return (csv);
 }
-
-/*
-int main()
-{
-	t_csv_table csv;
-	csv = csv_read_file("scene6.csv");
-	csv.print(&csv);
-	csv.delete(&csv);
-
-	return (0);
-}
-*/

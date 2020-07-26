@@ -1,4 +1,5 @@
 #include "csv_reader.h"
+#include "get_next_line.h"
 
 static	int ft_strclen(char *str, char c)
 {
@@ -21,6 +22,7 @@ static void csv_cpy_cell_cols(t_csv_table *csv, char *line, int row, char delim)
 	col = 0;
 	while (line[i])
 	{
+		len = 0;
 		if (line[i] != delim && col < csv->cols)
 		{
 			len = ft_strclen(line + i, delim);
